@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoffeeRepository.cs" />
+    <Compile Include="DataClass.cs" />
     <Compile Include="ICoffeeRepository.cs" />
     <Compile Include="IDataRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

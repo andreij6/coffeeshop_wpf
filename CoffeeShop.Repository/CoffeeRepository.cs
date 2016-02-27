@@ -9,34 +9,41 @@ namespace CoffeeShop.Repository
 {
 	public class CoffeeRepository : ICoffeeRepository
 	{
+		IList<Coffee> Data;
 		public CoffeeRepository()
 		{
-
+			Data = DataClass.LoadCoffees().ToList();
 		}
 
 		public void Add(Coffee entity)
 		{
-			throw new NotImplementedException();
+			Data.Add(entity);
 		}
 
 		public void Delete(int id)
 		{
-			throw new NotImplementedException();
+			var coffee = Data.SingleOrDefault(cup => cup.Id == id);
+
+			if (coffee != null)
+				Data.Remove(coffee);
+
 		}
 
 		public IEnumerable<Coffee> GetAll()
 		{
-			throw new NotImplementedException();
+			return Data;
 		}
 
 		public Coffee GetById(int id)
 		{
-			throw new NotImplementedException();
+			return Data.SingleOrDefault(cup => cup.Id == id);
 		}
 
 		public void Update(Coffee update, int id)
 		{
-			throw new NotImplementedException();
+			var cup = GetById(id);
+
+			cup = update;
 		}
 	}
 }
